@@ -1,21 +1,30 @@
-# Keeper of Stories — Lisieux Titan
+# Keeper of Stories
 
-A complete, static digital exhibition for the Keeper of Stories student robotics project. HTML, CSS and a small amount of vanilla JavaScript; no external runtime libraries or API keys.
+The website for Keeper of Stories, a storytelling robot built by Lisieux Titan from Lisieux English School, Vaikom, Kerala. Keeper recognises Indian folk paintings, explains them and answers questions out loud. It placed 7th at the WRO India 2026 National Championship (Future Innovators, Senior).
 
-## Local preview
+Live at https://keeper.vercel.app
 
-Run `npm start` (or `node scripts/serve.mjs`), then open `http://127.0.0.1:4173`. The production files are in `dist/`; they can be served by any static host. Run `npm run validate` for asset, anchor and JavaScript checks.
+## Running it locally
 
-## Content and assets
+```bash
+npm start
+```
 
-- All five documentary photographs were supplied by Lisieux Titan: final Keeper, early LEGO prototype, Nationals sign, exhibition booth, and team.
-- Competition details and project capabilities follow the supplied project brief. No names have been inferred from photographs.
-- The conversation is a curated demonstration, not a live robot connection. Its Madhubani notes cite the District Administration of Madhubani.
-- The school crest was supplied by the user. Its exterior background was removed with built-in ImageGen. The tiny original was enlarged during that process; it is not a vector or a pixel-identical archival master.
-- Cormorant Garamond and DM Sans are self-hosted; their OFL licenses are in `dist/assets/fonts/`.
+Then open http://127.0.0.1:4173. There are no dependencies: the site is plain HTML, CSS and JavaScript in `dist/`.
 
-## Editing
+`npm run validate` checks image attributes, local file references, anchors and script syntax. Vercel runs the same check as the build step, so a broken reference fails the deploy instead of going live.
 
-`dist/index.html` contains the exhibition narrative and metadata; `dist/style.css` controls its responsive layout; `dist/script.js` provides navigation, the illustrative conversation, cultural strip, comparison and scroll reveals. All narrative content remains readable without JavaScript, and reduced motion is respected.
+## Files
 
-The Sites project identity lives in `.openai/hosting.json`. Reuse it for later deployments.
+- `dist/index.html` — all page content
+- `dist/style.css` — layout and design
+- `dist/script.js` — mobile menu, the hero screen cycle, the Ask Keeper demo and scroll reveals
+- `dist/assets/art/` — photographs of the five paintings used in the demo
+- `scripts/prepare-fonts.mjs` — re-downloads the self-hosted fonts (Bricolage Grotesque and IBM Plex Mono, both OFL; licences in `dist/assets/fonts/`)
+
+## Notes on content
+
+- Documentary photos (Keeper, prototype, Nationals board, booth, team) were supplied by Lisieux Titan.
+- The tech stack in "How it works" comes from the team's poster at Nationals.
+- The Ask Keeper conversation is scripted, not a live connection to the robot. Answers are short summaries of widely documented facts about each tradition.
+- The Tanjore image carries a third-party watermark and should be replaced with a photo the team has rights to.

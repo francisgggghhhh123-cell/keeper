@@ -1,12 +1,14 @@
 {
-  "name": "keeper-of-stories",
-  "version": "1.0.0",
+  "name": "keeper",
+  "version": "2.0.0",
   "private": true,
-  "description": "The digital exhibition of Keeper of Stories by Lisieux Titan.",
+  "description": "Keeper of Stories, the website for Lisieux Titan's storytelling robot.",
   "type": "module",
   "scripts": {
     "start": "node scripts/serve.mjs",
     "dev": "node scripts/serve.mjs",
-    "validate": "node scripts/validate.mjs"
+    "build": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs",
+    "fonts": "node scripts/prepare-fonts.mjs"
   }
 }

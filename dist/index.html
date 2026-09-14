@@ -3,82 +3,345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4efe6">
+  <meta name="theme-color" content="#F6F5F0">
   <title>Keeper of Stories — Lisieux Titan</title>
-  <meta name="description" content="Giving culture another voice. Discover Keeper of Stories, the student-built storytelling robot by Lisieux Titan, and its journey from Vaikom to WRO India 2026.">
+  <meta name="description" content="Keeper of Stories is a robot that recognises Indian folk paintings, explains them and answers questions out loud. Built by Lisieux Titan from Vaikom, Kerala. 7th at WRO India 2026.">
   <meta property="og:title" content="Keeper of Stories — Lisieux Titan">
-  <meta property="og:description" content="A robot. A team. A belief that stories deserve to stay alive. Explore the journey of Keeper of Stories.">
+  <meta property="og:description" content="A student-built robot that tells the stories behind Madhubani, Warli, Pattachitra, Tanjore and Kalamkari paintings.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lisieux-titan-keeper-of-stories.francis83529.chatgpt.site">
-  <link rel="canonical" href="https://lisieux-titan-keeper-of-stories.francis83529.chatgpt.site">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='3' fill='%2395442f'/%3E%3Cpath d='M19 13v38m0-18L43 13M24 29l21 22' stroke='%23f4efe6' stroke-width='5' fill='none'/%3E%3C/svg%3E">
+  <meta property="og:url" content="https://keeper.vercel.app/">
+  <meta property="og:image" content="https://keeper.vercel.app/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://keeper.vercel.app/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-200-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" as="image" href="assets/keeper.jpg">
+  <script>document.documentElement.classList.add('js')</script>
   <script src="script.js" defer></script>
 </head>
 <body id="top">
-  <a class="skip-link" href="#main">Skip to the story</a>
-  <div class="reading-progress" aria-hidden="true"></div>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <g id="eye">
+        <circle cx="4.5" cy="1.5" r="1.15"/><circle cx="7.5" cy="1.5" r="1.15"/><circle cx="10.5" cy="1.5" r="1.15"/>
+        <circle cx="1.5" cy="4.5" r="1.15"/><circle cx="13.5" cy="4.5" r="1.15"/>
+        <circle cx="1.5" cy="7.5" r="1.15"/><circle cx="7.5" cy="7.5" r="1.15"/><circle cx="13.5" cy="7.5" r="1.15"/>
+        <circle cx="1.5" cy="10.5" r="1.15"/><circle cx="13.5" cy="10.5" r="1.15"/>
+        <circle cx="4.5" cy="13.5" r="1.15"/><circle cx="7.5" cy="13.5" r="1.15"/><circle cx="10.5" cy="13.5" r="1.15"/>
+        <g opacity=".18">
+          <circle cx="1.5" cy="1.5" r="1.15"/><circle cx="13.5" cy="1.5" r="1.15"/><circle cx="1.5" cy="13.5" r="1.15"/><circle cx="13.5" cy="13.5" r="1.15"/>
+          <circle cx="4.5" cy="4.5" r="1.15"/><circle cx="7.5" cy="4.5" r="1.15"/><circle cx="10.5" cy="4.5" r="1.15"/>
+          <circle cx="4.5" cy="7.5" r="1.15"/><circle cx="10.5" cy="7.5" r="1.15"/>
+          <circle cx="4.5" cy="10.5" r="1.15"/><circle cx="7.5" cy="10.5" r="1.15"/><circle cx="10.5" cy="10.5" r="1.15"/>
+        </g>
+      </g>
+      <symbol id="eyes" viewBox="0 0 36 15"><use href="#eye"/><use href="#eye" x="21"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Lisieux Titan — back to the beginning"><span class="brand-mark" aria-hidden="true">lt.</span><span>LISIEUX <b>TITAN</b><small>KEEPER OF STORIES</small></span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#keeper">Keeper</a><a href="#purpose">Purpose</a><a href="#journey">Journey</a><a href="#nationals">Nationals</a><a href="#people">People</a></nav>
-    <span class="header-edition">WRO INDIA <span>2026</span></span>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Keeper of Stories, back to top">
+        <svg class="eyes" aria-hidden="true"><use href="#eyes"/></svg>
+        <span>Keeper of Stories<small>by Lisieux Titan</small></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="#ask">Ask Keeper</a>
+        <a href="#how">How it works</a>
+        <a href="#build">The build</a>
+        <a href="#nationals">Nationals</a>
+        <a href="#team">Team</a>
+      </nav>
+      <span class="header-pill">7th · WRO India 2026</span>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
   </header>
-  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="#keeper">01 <span>Meet Keeper</span></a><a href="#purpose">02 <span>The purpose</span></a><a href="#journey">03 <span>The journey</span></a><a href="#nationals">04 <span>The national stage</span></a><a href="#people">05 <span>The people</span></a></nav>
+
   <main id="main">
-    <section class="hero" id="opening" aria-labelledby="hero-title">
-      <div class="hero-topline eyebrow"><span>A LISIEUX TITAN PROJECT</span><span>VAIKOM, KERALA, INDIA</span></div>
-      <div class="hero-composition">
-        <div class="hero-type"><p class="hero-prelude">Some stories are displayed.<br>Others are discovered.</p><h1 id="hero-title"><span>Keeper</span><span class="hero-title-bottom">of <em>Stories.</em></span></h1><div class="hero-intro"><span class="small-star" aria-hidden="true">✳</span><p>Giving culture<br><em>another voice.</em></p></div></div>
-        <figure class="hero-portrait"><div class="hero-photo"><img src="assets/keeper.jpg" width="720" height="1280" fetchpriority="high" alt="Keeper at the exhibition: a tall white student-built robot with red digital eyes, physical arms, musical notes, and a colourful artwork on its screen."></div><figcaption><span>EXHIBIT 01 — THE STORYTELLER</span><span>HYDERABAD, 2026</span></figcaption></figure>
-        <span class="hero-margin-note" aria-hidden="true">BUILT TO LISTEN. MADE TO TELL.</span>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="label hero-kicker"><span>Lisieux Titan</span><span>Vaikom, Kerala</span><span>WRO 2026 · Future Innovators</span></p>
+          <h1 id="hero-title">Keeper <span class="h1-of">of</span> <span class="h1-stories">Stories</span></h1>
+          <p class="hero-lead">A robot that recognises Indian folk paintings, explains them in plain language and answers your questions out loud.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#ask">Ask Keeper a question <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#build">See how we built it</a>
+          </div>
+          <dl class="hero-facts">
+            <div><dt>Recognises</dt><dd>5 art styles</dd></div>
+            <div><dt>Runs</dt><dd>Fully offline</dd></div>
+            <div><dt>Nationals</dt><dd>7th in India</dd></div>
+          </dl>
+        </div>
+        <figure class="hero-figure">
+          <div class="keeper-photo">
+            <img src="assets/keeper.jpg" width="720" height="1280" fetchpriority="high" alt="Keeper at the competition: a tall white robot with red LED eyes, padded arms, music notes on its body and a screen showing a folk painting.">
+            <div class="keeper-screen" aria-hidden="true">
+              <img class="is-on" src="assets/art/madhubani.jpg" width="782" height="1100" alt="" data-name="Madhubani">
+              <img src="assets/art/warli.jpg" width="1063" height="1100" alt="" data-name="Warli" loading="lazy">
+              <img src="assets/art/pattachitra.jpg" width="682" height="975" alt="" data-name="Pattachitra" loading="lazy">
+              <img src="assets/art/tanjore.jpg" width="379" height="500" alt="" data-name="Tanjore" loading="lazy">
+              <img src="assets/art/kalamkari.jpg" width="712" height="1046" alt="" data-name="Kalamkari" loading="lazy">
+            </div>
+            <p class="screen-tag" aria-hidden="true"><span class="screen-dot"></span>On screen: <b id="screen-name">Madhubani</b></p>
+          </div>
+          <figcaption class="caption">Keeper at WRO India 2026, Hyderabad</figcaption>
+        </figure>
       </div>
-      <div class="hero-bottom"><a class="begin-link" href="#purpose"><span class="arrow-circle" aria-hidden="true">↓</span><span>Step into the story</span></a><p>An interactive cultural storytelling robot.<br>Created by students. Made for human curiosity.</p><div class="hero-competition eyebrow">WORLD ROBOT OLYMPIAD 2026<br><span>FUTURE INNOVATORS · SENIOR</span></div></div>
     </section>
-    <div class="exhibition-band"><span>ROBOTS MEET CULTURE</span><span class="band-star" aria-hidden="true">✳</span><span>ART. PEOPLE. MEMORY.</span><span class="band-star" aria-hidden="true">✳</span><span>FROM ART TO HEART</span><span class="band-star" aria-hidden="true">✳</span></div>
-    <section class="purpose section-shell" id="purpose" aria-labelledby="purpose-title">
-      <div class="section-index"><span>01 / THE REASON</span><span>BEYOND THE GLASS</span></div>
-      <div class="purpose-layout"><span class="oversized-quote" aria-hidden="true">“</span><div><h2 id="purpose-title">An artwork can survive<br>for centuries.<br><em>Its story may not.</em></h2><div class="purpose-copy"><p>A painting can hold the memory of a place. A pattern can carry a tradition. An object can tell us how someone, somewhere, once lived.</p><p>But when we only see the object, we can miss the people, the meaning and the world behind it. Keeping culture safe is only part of the work. We also have to keep it understood.</p></div></div></div>
-      <div class="purpose-footnote"><span class="eyebrow">THE QUESTION THAT STARTED EVERYTHING</span><p>What if, instead of walking past a story,<br>you could <em>ask it a question?</em></p></div>
-    </section>
-    <section class="keeper-section section-shell" id="keeper" aria-labelledby="keeper-title">
-      <div class="section-index"><span>02 / THE STORYTELLER</span><span>A LITTLE CURIOSITY GOES A LONG WAY</span></div>
-      <div class="keeper-layout">
-        <figure class="keeper-figure reveal"><div class="keeper-image-wrap"><img src="assets/keeper.jpg" width="720" height="1280" loading="lazy" alt="The full-size Keeper of Stories at its competition booth, showing its expressive eyes, artwork display, arms and wheeled base."><span class="image-label">MEET YOUR MUSEUM COMPANION</span></div><figcaption class="photo-caption"><span>01 — Keeper of Stories</span><span>Built by Lisieux Titan, 2026</span></figcaption></figure>
-        <div class="keeper-story"><h2 class="reveal" id="keeper-title">Meet<br><em>Keeper.</em></h2><p class="large-copy reveal">A different way to experience culture:<br>by talking to it.</p><p class="body-copy">Keeper recognises the artwork a visitor is looking at, introduces the world behind it, and leaves room for the next question. More like a storyteller beside you than a plaque on a wall.</p><div class="keeper-abilities"><div><span>01</span><h3>See</h3><p>Recognise the artwork.</p></div><div><span>02</span><h3>Understand</h3><p>Connect it to history and meaning.</p></div><div><span>03</span><h3>Tell</h3><p>Give the story a voice.</p></div><div><span>04</span><h3>Listen</h3><p>Let curiosity lead the conversation.</p></div><div><span>05</span><h3>Preserve</h3><p>Help that knowledge reach someone new.</p></div></div><p class="keeper-note">Digital eyes. A screen for art. Arms, movement and a voice.<br>A student-built machine with a very human purpose.</p></div>
+
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <p class="label"><span>01</span>Why we built it</p>
+        <h2 class="statement reveal" id="why-title">
+          Most paintings in a museum get a small card: a name, a place, a date.
+          <span class="muted">The story behind a Warli <span class="art-chip"><img src="assets/art/warli.jpg" width="1063" height="1100" alt="" loading="lazy"></span> dance or a Madhubani <span class="art-chip"><img src="assets/art/madhubani.jpg" width="782" height="1100" alt="" loading="lazy"></span> peacock doesn’t fit on it.</span>
+        </h2>
+        <div class="why-cols">
+          <p>Folk painting traditions like Warli, Madhubani and Pattachitra are still practised by families and communities across India. Every shape in them means something. But when you see one on a wall, you usually get a title and not much else.</p>
+          <p>The theme of the World Robot Olympiad 2026 was <strong>Robots Meet Culture</strong>. We asked what a robot could actually do for culture, and landed on something simple: stand beside a painting, explain it clearly, and answer whatever people want to know.</p>
+        </div>
+        <blockquote class="poster-quote reveal">
+          <p>“Because heritage deserves more than a label.”</p>
+          <cite>From our exhibition poster at Nationals</cite>
+        </blockquote>
       </div>
     </section>
-    <section class="conversation-section section-shell" aria-labelledby="conversation-title">
-      <div class="section-index"><span>03 / AN ENCOUNTER</span><span>FROM LOOKING TO ASKING</span></div>
-      <div class="conversation-heading"><h2 class="reveal" id="conversation-title">Stay for<br><em>the next question.</em></h2><p>A label tells you what something is.<br>A conversation gives you somewhere to go.</p></div>
-      <div class="conversation-exhibit">
-        <div class="art-label"><span class="eyebrow">A TRADITION IN FOCUS</span><span class="art-initial" aria-hidden="true">M<span>म</span></span><div><h3>Madhubani</h3><p>MITHILA, BIHAR · INDIA</p></div><p class="art-label-description">A living tradition of line,<br>colour and storytelling.</p><span class="art-label-number">CULTURAL NOTE / 001</span></div>
-        <div class="conversation-content"><span class="eyebrow conversation-kicker">IMAGINE STANDING BESIDE KEEPER</span><div class="exchange" aria-live="polite" aria-atomic="true"><p class="speaker">YOU ASK</p><p class="visitor-question" id="visitor-question">“What am I looking at?”</p><div class="keeper-answer"><span class="speaker">KEEPER</span><p id="keeper-answer">“This is Madhubani, a painting tradition from the Mithila region of Bihar. Its lines and colours carry stories of nature, everyday life and belief.”</p></div></div><div class="question-picker"><p class="eyebrow">FOLLOW YOUR CURIOSITY</p><div class="question-options"><button class="question-button" data-question="patterns" aria-pressed="false">Why so many patterns? <span aria-hidden="true">↗</span></button><button class="question-button" data-question="colours" aria-pressed="false">Where do the colours come from? <span aria-hidden="true">↗</span></button><button class="question-button" data-question="simple" aria-pressed="false">Explain it more simply. <span aria-hidden="true">↗</span></button><button class="question-reset" data-question="intro" hidden>Back to the first question ↺</button></div></div><p class="demo-note">An illustrative exchange, showing the kind of conversation Keeper was designed for. <a href="https://madhubani.nic.in/handicraft/" target="_blank" rel="noopener noreferrer">About the tradition ↗</a></p></div>
+
+    <section class="ask" id="ask" aria-labelledby="ask-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label"><span>02</span>Try it</p>
+          <h2 id="ask-title">Pick a painting. Ask Keeper about it.</h2>
+          <p class="section-intro">These are the five traditions Keeper was built around. Choose one and it will tell you what you’re looking at, then answer follow-up questions.</p>
+        </div>
+
+        <div class="ask-grid">
+          <div class="wall" role="group" aria-label="Choose a painting">
+            <button class="wall-item" type="button" data-art="madhubani" aria-pressed="true">
+              <span class="frame"><img src="assets/art/madhubani.jpg" width="782" height="1100" loading="lazy" alt="Madhubani painting of a peacock with a fish curled into its body, outlined in white on a bright orange ground, with leaf-shaped tail feathers."></span>
+              <span class="wall-label"><b>Madhubani</b>Mithila, Bihar</span>
+            </button>
+            <button class="wall-item" type="button" data-art="warli" aria-pressed="false">
+              <span class="frame"><img src="assets/art/warli.jpg" width="1063" height="1100" loading="lazy" alt="Warli painting in white on deep red: a circle of dancers holding hands inside a diamond, surrounded by rows of figures, trees and a leaf border."></span>
+              <span class="wall-label"><b>Warli</b>Maharashtra</span>
+            </button>
+            <button class="wall-item" type="button" data-art="pattachitra" aria-pressed="false">
+              <span class="frame"><img src="assets/art/pattachitra.jpg" width="682" height="975" loading="lazy" alt="Pattachitra painting of Lord Jagannath with a large decorated halo, framed by patterned borders of orange flowers and green vines on yellow."></span>
+              <span class="wall-label"><b>Pattachitra</b>Odisha</span>
+            </button>
+            <button class="wall-item" type="button" data-art="tanjore" aria-pressed="false">
+              <span class="frame"><img src="assets/art/tanjore.jpg" width="379" height="500" loading="lazy" alt="Tanjore painting of Lord Ganesha seated and writing in a book, with raised gold detailing, a red curtain and an ornate gold arch."></span>
+              <span class="wall-label"><b>Tanjore</b>Tamil Nadu</span>
+            </button>
+            <button class="wall-item" type="button" data-art="kalamkari" aria-pressed="false">
+              <span class="frame"><img src="assets/art/kalamkari.jpg" width="712" height="1046" loading="lazy" alt="Kalamkari textile showing a blue peacock beneath a flowering tree of red, pink and blue blossoms and yellow leaves, above a floral border."></span>
+              <span class="wall-label"><b>Kalamkari</b>Andhra Pradesh</span>
+            </button>
+          </div>
+
+          <div class="console">
+            <div class="console-bar">
+              <svg class="eyes eyes-console" aria-hidden="true"><use href="#eyes"/></svg>
+              <p class="console-status" id="ask-status">Recognised <b>Madhubani</b> · Mithila, Bihar</p>
+            </div>
+            <div class="console-body">
+              <p class="speaker">You</p>
+              <p class="ask-q" id="ask-question">What am I looking at?</p>
+              <div class="ask-a-wrap">
+                <p class="speaker speaker-keeper">Keeper</p>
+                <p class="ask-a" id="ask-answer">This is a Madhubani painting, from the Mithila region of Bihar. It shows a peacock with a fish curled into its body, two favourite Madhubani subjects. Notice the double outlines, and how almost no space is left empty.</p>
+              </div>
+              <p class="sr-only" id="ask-live" aria-live="polite"></p>
+            </div>
+            <div class="console-questions">
+              <p class="speaker">Ask a follow-up</p>
+              <div class="chips" id="ask-chips">
+                <button class="chip-btn" type="button" aria-pressed="true">What am I looking at?</button>
+                <button class="chip-btn" type="button" aria-pressed="false">Who painted these first?</button>
+                <button class="chip-btn" type="button" aria-pressed="false">Why is every space filled?</button>
+                <button class="chip-btn" type="button" aria-pressed="false">Where do the colours come from?</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="ask-note">A scripted preview of the conversations Keeper has at exhibitions. The real robot hears spoken questions, works out its own answers and speaks them aloud. Answers here are short summaries; the artists and communities behind each tradition are the real experts.</p>
       </div>
     </section>
-    <section class="culture-section section-shell" aria-labelledby="culture-title">
-      <div class="culture-heading"><div><span class="eyebrow">MANY PLACES. MANY WAYS OF REMEMBERING.</span><h2 id="culture-title" class="reveal">A country of<br><em>countless stories.</em></h2></div><p>Keeper was designed around Indian cultural and folk-art traditions. Each is a world of its own, shaped by the people who keep practising it.</p></div>
-      <div class="culture-scroll-label"><span class="eyebrow">A FEW TRADITIONS IN KEEPER’S WORLD</span><div class="strip-controls"><button class="strip-prev" aria-label="Previous traditions" disabled>←</button><button class="strip-next" aria-label="More traditions">→</button></div></div>
-      <div class="culture-strip" tabindex="0" aria-label="Indian art traditions; scroll horizontally for more"><article><span>01 / MITHILA, BIHAR</span><h3>Madhubani</h3><p>Stories in line and colour.</p></article><article><span>02 / MAHARASHTRA</span><h3>Warli</h3><p>A tradition carried by a community.</p></article><article><span>03 / TAMIL NADU</span><h3>Tanjore</h3><p>A place remembered through its art.</p></article><article><span>04 / ANDHRA PRADESH</span><h3>Kalamkari</h3><p>Stories that live on cloth.</p></article><article><span>05 / ODISHA & BENGAL</span><h3>Pattachitra</h3><p>Another way to tell a story.</p></article></div>
-      <div class="culture-afterword"><p>A starting point, never the whole story.</p><a href="https://sansadkikala.ignca.gov.in/details/jan-janani-bhoomi/en" target="_blank" rel="noopener noreferrer">Explore India’s living traditions ↗</a></div>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label"><span>03</span>How it works</p>
+          <h2 id="how-title">It looks. It listens. It answers.</h2>
+          <p class="section-intro">Keeper does four things, and all of them happen on the robot itself.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="dots" data-dots="see" aria-hidden="true"></span>
+            <span class="step-num">01</span>
+            <h3>Sees</h3>
+            <p>A camera captures the painting in front of Keeper, and a recognition model works out which tradition it belongs to.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dots" data-dots="explain" aria-hidden="true"></span>
+            <span class="step-num">02</span>
+            <h3>Explains</h3>
+            <p>The artwork appears on its screen while Keeper talks you through where it comes from and what to look for.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dots" data-dots="listen" aria-hidden="true"></span>
+            <span class="step-num">03</span>
+            <h3>Listens</h3>
+            <p>Ask a question out loud. Speech recognition turns it into text, a language model writes the answer, and Keeper says it back.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dots" data-dots="offline" aria-hidden="true"></span>
+            <span class="step-num">04</span>
+            <h3>Stays offline</h3>
+            <p>Nothing is sent to the internet. That matters in museums and heritage sites, where the signal is often poor.</p>
+          </li>
+        </ol>
+
+        <div class="specs">
+          <div>
+            <h3 class="specs-title">What’s inside</h3>
+            <p class="specs-intro">The tech stack, as listed on our poster at Nationals.</p>
+          </div>
+          <dl class="spec-list">
+            <div><dt>Main computer</dt><dd>Raspberry Pi, running Raspberry Pi OS</dd></div>
+            <div><dt>Motors &amp; sensors</dt><dd>Arduino</dd></div>
+            <div><dt>Code</dt><dd>Python, C and C++</dd></div>
+            <div><dt>Language models</dt><dd>Gemma 3 and LLaMA 3, running locally</dd></div>
+            <div><dt>Voice</dt><dd>Whisper for speech-to-text, plus text-to-speech</dd></div>
+            <div><dt>Body</dt><dd>LED-matrix eyes, a display, arms and a wheeled base</dd></div>
+          </dl>
+        </div>
+      </div>
     </section>
-    <section class="memory-section" aria-labelledby="memory-title"><span class="eyebrow">THE BELIEF AT THE HEART OF KEEPER</span><h2 class="reveal" id="memory-title">Not preserved objects.<br><em>Preserved people,<br>stories and memory.</em></h2><div class="memory-bottom"><span class="memory-star" aria-hidden="true">✳</span><p>Culture stays alive when we understand it, question it and pass it on. Keeper’s purpose is to give it another voice, alongside the historians, artists, teachers and human storytellers who already carry it.</p></div></section>
-    <section class="journey-section section-shell" id="journey" aria-labelledby="journey-title">
-      <div class="section-index"><span>04 / THE MAKING OF KEEPER</span><span>VAIKOM → KOCHI → HYDERABAD</span></div>
-      <div class="journey-heading"><h2 id="journey-title" class="reveal">Every machine<br>begins as <em>an idea.</em></h2><p>Keeper wasn’t built in a day.<br>And it didn’t begin at this size.</p></div>
-      <div class="origin-layout"><figure class="prototype-figure reveal"><div class="archival-photo"><img src="assets/prototype.jpg" width="1280" height="563" loading="lazy" alt="The early Keeper prototype: LEGO beams, a small wheeled base and exposed wiring on a classroom floor."><span class="archive-tab">FROM THE PROJECT ARCHIVE</span></div><figcaption class="photo-caption"><span>02 — The first Keeper</span><span>Small enough for a table. Big enough to begin.</span></figcaption></figure><div class="origin-copy"><span class="eyebrow">WHERE IT STARTED</span><h3>A small robot.<br>A question <em>worth trying.</em></h3><p>Before Keeper could stand in an exhibition hall and tell a story, there was this: a small LEGO-based prototype that made an idea tangible.</p><p>It gave the team a place to experiment, make mistakes and learn. Every test made the next question a little clearer.</p></div></div>
-      <div class="comparison-heading"><h3 class="reveal">Same idea.<br><em>A very different machine.</em></h3><p>The first Keeper could fit on a table.<br>The next one stood beside us.</p></div>
-      <div class="comparison" style="--split:42%"><div class="comparison-showcase"><figure class="compare-early"><div class="compare-label"><span>THEN</span><span>THE FIRST KEEPER</span></div><div class="compare-image"><img src="assets/prototype.jpg" width="1280" height="563" loading="lazy" alt="Early LEGO Keeper, shown in full for comparison."></div><figcaption>An idea taking shape.</figcaption></figure><figure class="compare-final"><div class="compare-label"><span>LATER</span><span>THE FULL-SIZE KEEPER</span></div><div class="compare-image"><img src="assets/keeper.jpg" width="720" height="1280" loading="lazy" alt="The finished full-size Keeper with screen, digital eyes and arms, shown in full for comparison."></div><figcaption>A storyteller ready to meet people.</figcaption></figure></div><div class="comparison-control"><label for="comparison-range">A closer look at the evolution</label><div class="range-line"><span>Prototype</span><input type="range" id="comparison-range" min="25" max="75" value="42" aria-label="Adjust the space given to the prototype and finished Keeper" aria-valuetext="42 percent prototype, 58 percent finished Keeper"><span>Keeper</span></div><span class="range-hint">DRAG TO EXPLORE</span></div></div>
-      <div class="timeline-layout"><div class="timeline-intro"><span class="eyebrow">THE JOURNEY, IN SIX CHAPTERS</span><h3>Build.<br>Test.<br><em>Begin again.</em></h3><p>Months of making, refining and learning to explain why the project mattered.</p></div><ol class="timeline"><li class="timeline-chapter"><span class="chapter-number">01</span><div><span class="eyebrow">THE IDEA · VAIKOM</span><h4>A story deserves a listener.</h4><p>What if a robot could stand beside a piece of culture and help someone understand it?</p></div></li><li class="timeline-chapter"><span class="chapter-number">02</span><div><span class="eyebrow">THE FIRST KEEPER</span><h4>Something real to learn from.</h4><p>A small prototype put the idea into the team’s hands. Testing could begin.</p></div></li><li class="timeline-chapter"><span class="chapter-number">03</span><div><span class="eyebrow">BUILDING BIGGER</span><h4>More than a change in size.</h4><p>Eyes, a display, arms, movement and conversation. Keeper became a machine people could approach.</p></div></li><li class="timeline-chapter"><span class="chapter-number">04</span><div><span class="eyebrow">REGIONALS · KOCHI</span><h4>Third in Kochi. On to Nationals.</h4><p>Lisieux Titan presented Keeper, placed third at the regional competition and qualified for the National Championship.</p></div></li><li class="timeline-chapter"><span class="chapter-number">05</span><div><span class="eyebrow">26–28 AUGUST 2026 · HYDERABAD</span><h4>The national stage.</h4><p>Keeper travelled to GMR Arena for the WRO India National Championship, Future Innovators Senior.</p></div></li><li class="timeline-chapter"><span class="chapter-number">06</span><div><span class="eyebrow">SEVENTH IN INDIA</span><h4>A milestone. And a beginning.</h4><p>Lisieux Titan finished seventh nationally. The result became part of a bigger story about what students can build around an idea they care about.</p></div></li></ol></div>
+
+    <section class="build" id="build" aria-labelledby="build-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label"><span>04</span>The build</p>
+          <h2 id="build-title">It started as a LEGO car with wires everywhere.</h2>
+          <p class="section-intro">The first Keeper fit on a tabletop. It was enough to prove the idea could work, and to show us everything that didn’t yet.</p>
+        </div>
+        <div class="versions">
+          <figure class="version reveal">
+            <img src="assets/prototype.jpg" width="1280" height="563" loading="lazy" alt="The early prototype: a LEGO frame on a small four-wheeled base with yellow motors and exposed red, black and green wires.">
+            <figcaption><span class="version-tag">v0.1</span><span><b>The tabletop prototype.</b> A LEGO frame, two motors and a lot of jumper wires.</span></figcaption>
+          </figure>
+          <figure class="version version-tall reveal">
+            <img src="assets/keeper.jpg" width="720" height="1280" loading="lazy" alt="The finished competition robot, standing at human height with its screen, LED eyes and padded arms.">
+            <figcaption><span class="version-tag version-tag-red">v1.0</span><span><b>The competition robot.</b> Human height, with eyes, a screen, arms and a voice.</span></figcaption>
+          </figure>
+        </div>
+
+        <ol class="route" aria-label="The journey from idea to Nationals">
+          <li class="reveal"><p class="route-place">Vaikom</p><h3>The idea</h3><p>Could a robot help people understand the art in front of them?</p></li>
+          <li class="reveal"><p class="route-place">Vaikom</p><h3>Prototype</h3><p>A small LEGO-based robot let us test recognition and speech.</p></li>
+          <li class="reveal"><p class="route-place">Vaikom</p><h3>Full-size Keeper</h3><p>We rebuilt it at human height so people could walk up and talk to it.</p></li>
+          <li class="reveal"><p class="route-place">Kochi</p><h3>Regionals</h3><p>3rd place, and a place at the National Championship.</p></li>
+          <li class="reveal"><p class="route-place">Hyderabad</p><h3>Nationals</h3><p>26–28 August 2026 at GMR Arena.</p></li>
+          <li class="reveal"><p class="route-place">Result</p><h3>7th in India</h3><p>Future Innovators, Senior category.</p></li>
+        </ol>
+      </div>
     </section>
-    <section class="nationals-section" id="nationals" aria-labelledby="nationals-title"><div class="nationals-top"><span class="eyebrow">05 / THE NATIONAL STAGE</span><span class="eyebrow">26–28 AUGUST 2026</span></div><div class="nationals-title-wrap"><p>From a classroom idea to the national stage.</p><h2 class="reveal" id="nationals-title">Hyderabad.</h2></div><div class="nationals-layout"><figure class="national-photo reveal"><img src="assets/nationals.jpg" width="1200" height="1600" loading="lazy" alt="The WRO welcome display reads National Championship 2026, Robots Meet Culture, 26–28 August, GMR Arena, Hyderabad."><figcaption class="photo-caption">03 — WRO India National Championship · GMR Arena, Hyderabad</figcaption></figure><div class="national-story"><span class="eyebrow">WORLD ROBOT OLYMPIAD 2026</span><h3>Robots meet<br><em>culture.</em></h3><p>For Lisieux Titan, the theme was an invitation to look beyond what a robot could do and ask what it could help people discover.</p><p>Keeper arrived carrying that question, an evolving machine, and the work of a team from Vaikom.</p><div class="national-result"><span class="result-number">7<sup>th</sup></span><div><span class="eyebrow">IN INDIA</span><p>Future Innovators<br>Senior category</p></div></div><p class="result-reflection">A proud chapter.<br>Never the whole story.</p></div></div></section>
-    <section class="exhibition-section section-shell" aria-labelledby="exhibition-title"><div class="section-index"><span>06 / OUT IN THE WORLD</span><span>THE IDEA MEETS ITS AUDIENCE</span></div><div class="exhibition-heading"><h2 id="exhibition-title" class="reveal">Keeper left<br><em>the workshop.</em></h2><p>Then came the real test: standing in front of people, showing artwork, answering questions and making the idea understood.</p></div><figure class="booth-figure reveal"><img src="assets/booth.png" width="1448" height="1086" loading="lazy" alt="Students at the Lisieux Titan exhibition booth, surrounded by Keeper of Stories posters, cultural traditions and photographs documenting the build."><figcaption class="photo-caption"><span>04 — Bringing the story to the floor</span><span>The Lisieux Titan exhibition booth, WRO India 2026</span></figcaption></figure><div class="exhibition-note"><span class="eyebrow">ON THE OTHER SIDE OF THE PROJECT</span><p>Behind every demonstration were hours of learning.<br>In front of it was someone with <em>a new question.</em></p></div></section>
-    <section class="people-section section-shell" id="people" aria-labelledby="people-title"><div class="section-index"><span>07 / THE PEOPLE</span><span>LISIEUX ENGLISH SCHOOL · VAIKOM</span></div><div class="people-heading"><h2 id="people-title" class="reveal">Machines are built<br><em>by people.</em></h2><div class="school-signature"><img src="assets/lisieux-school-crest.png" width="1283" height="1226" loading="lazy" alt="Lisieux English School, Vaikom, crest"><span>LISIEUX ENGLISH SCHOOL<small>VAIKOM, KERALA</small></span></div></div><figure class="team-figure reveal"><img src="assets/team.jpg" width="1600" height="1200" loading="lazy" alt="Lisieux Titan students, mentors and supporters together outside the competition venue in Hyderabad."><figcaption class="photo-caption"><span>05 — Lisieux Titan, mentors and supporters at WRO India 2026</span><span>Hyderabad, India</span></figcaption></figure><div class="people-copy"><h3>Students. A shared idea.<br><em>A lot of figuring it out.</em></h3><div><p>Keeper of Stories was created by Lisieux Titan, from Lisieux English School in Vaikom, Kerala. Students learning, building, testing and carrying an ambitious idea from an early prototype to the WRO India National Championship.</p><p>The project is about human stories. This is one of them.</p></div></div></section>
-    <section class="future-section section-shell" aria-labelledby="future-title"><div class="section-index"><span>08 / THE STORY CONTINUES</span><span>A POSSIBILITY WORTH EXPLORING</span></div><div class="future-layout"><div><h2 id="future-title" class="reveal">Where could<br>the next story<br><em>find you?</em></h2><p class="body-copy">In a museum. At school. Beside a painting you have passed a hundred times without knowing what it means.</p><p class="body-copy">Systems inspired by Keeper could make cultural knowledge easier to encounter, giving visitors room to ask in their own way.</p></div><div class="future-places"><span class="eyebrow">POSSIBLE FUTURE SETTINGS</span><p>Museums <span>01</span></p><p>Heritage centres <span>02</span></p><p>Schools <span>03</span></p><p>Cultural exhibitions <span>04</span></p><p>Art galleries <span>05</span></p><p>Tourism spaces <span>06</span></p><p>Community archives <span>07</span></p></div></div><div class="language-note"><span class="eyebrow">CLOSER TO HOME</span><p>More regional languages. More local knowledge. Developed with the people whose stories are being told. The next step is a possibility to work towards, with care, rather than a promise already made.</p></div><blockquote class="future-quote reveal">“A story survives differently<br>when someone can ask it <em>a question.</em>”</blockquote></section>
-    <section class="closing-section" aria-labelledby="closing-title"><div class="closing-top eyebrow"><span>THE END OF THIS EXHIBITION</span><span>THE BEGINNING OF ANOTHER CONVERSATION</span></div><p class="closing-prelude">We built a robot.<br>But Keeper was never only about robots.</p><h2 id="closing-title" class="reveal">It was about<br><em>stories.</em></h2><div class="closing-echo"><p>Stories behind paintings.<br>Stories behind traditions.<br>Stories carried by generations.<br>Stories worth hearing again.</p><span class="closing-star" aria-hidden="true">✳</span></div><div class="closing-signature"><span class="eyebrow">KEEPER OF STORIES</span><p>From art <em>to heart.</em></p><span class="eyebrow">LISIEUX TITAN · VAIKOM, KERALA · WRO 2026</span></div></section>
+
+    <section class="nationals" id="nationals" aria-labelledby="nationals-title">
+      <div class="wrap nationals-grid">
+        <div class="nationals-text">
+          <p class="label"><span>05</span>WRO India National Championship</p>
+          <h2 class="rank-title" id="nationals-title"><span class="rank">7<sup>th</sup></span> in India.</h2>
+          <p class="nationals-lead">In August 2026 we took Keeper to GMR Arena in Hyderabad for the WRO India National Championship. The theme was Robots Meet Culture, the exact question Keeper was built to answer. We finished seventh in the Future Innovators Senior category.</p>
+          <dl class="results">
+            <div><dt>Regionals · Kochi</dt><dd>3rd</dd></div>
+            <div><dt>Nationals · Hyderabad</dt><dd>7th</dd></div>
+            <div><dt>Dates</dt><dd>26–28 Aug</dd></div>
+          </dl>
+        </div>
+        <figure class="pinned reveal">
+          <img src="assets/nationals.jpg" width="1200" height="1600" loading="lazy" alt="The WRO welcome board: National Championship 2026, Robots Meet Culture, 26–28 August, GMR Arena, Hyderabad.">
+          <figcaption>The welcome board at GMR Arena</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="booth" id="booth" aria-labelledby="booth-title">
+      <div class="wrap booth-grid">
+        <div class="booth-text">
+          <p class="label"><span>06</span>At the booth</p>
+          <h2 id="booth-title">Three days of explaining Keeper to anyone who stopped.</h2>
+          <p>Judges, other teams, parents, curious kids. Our posters covered what Keeper does, the tech inside it and where we want to take it next. The best part was watching people start asking it questions.</p>
+        </div>
+        <figure class="booth-figure reveal">
+          <img src="assets/booth.jpg" width="1448" height="1086" loading="lazy" alt="Lisieux Titan students at their booth, pointing to posters about Keeper of Stories, its tech stack and the art traditions it supports.">
+          <figcaption class="caption">Our booth at WRO India 2026</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label"><span>07</span>The team</p>
+          <h2 id="team-title">Lisieux Titan</h2>
+          <p class="section-intro">We’re a student robotics team from Lisieux English School in Vaikom, Kerala. Keeper took months of building, breaking and rebuilding, with a lot of help from our mentors and supporters.</p>
+        </div>
+        <figure class="team-figure reveal">
+          <img src="assets/team.jpg" width="1600" height="1200" loading="lazy" alt="Lisieux Titan students with mentors and supporters, wearing WRO lanyards outside the venue in Hyderabad.">
+          <figcaption class="caption">Lisieux Titan with mentors and supporters outside GMR Arena, Hyderabad</figcaption>
+        </figure>
+        <div class="school">
+          <img src="assets/crest.png" width="360" height="344" loading="lazy" alt="Lisieux English School, Vaikom crest">
+          <p><b>Lisieux English School</b>Vaikom, Kerala, India</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="next" id="next" aria-labelledby="next-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label"><span>08</span>What’s next</p>
+          <h2 id="next-title">Where Keeper could go from here.</h2>
+          <p class="section-intro">These are the plans from our poster. None of them are finished, and all of them should be built together with the artists and communities whose work Keeper talks about.</p>
+        </div>
+        <ol class="next-list">
+          <li class="reveal"><span class="next-num">A</span><h3>More languages</h3><p>So people can ask questions in the language they think in, not just English.</p></li>
+          <li class="reveal"><span class="next-num">B</span><h3>More traditions</h3><p>India has far more than five folk art styles. Keeper should know many more of them.</p></li>
+          <li class="reveal"><span class="next-num">C</span><h3>Guided art-making</h3><p>Helping visitors try a technique themselves, not just hear about it.</p></li>
+          <li class="reveal"><span class="next-num">D</span><h3>Real museums and schools</h3><p>Anywhere a painting deserves more than a label.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap">
+        <svg class="eyes eyes-large" aria-hidden="true"><use href="#eyes"/></svg>
+        <h2 class="closing-line" id="closing-title">From art to heart.</h2>
+        <p class="closing-sub">The line on our poster, and the whole idea in four words.</p>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">lt.</span><span>LISIEUX <b>TITAN</b><small>KEEPER OF STORIES</small></span></a><div class="footer-school"><img src="assets/lisieux-school-crest.png" width="1283" height="1226" loading="lazy" alt="Lisieux English School crest"><p>Lisieux English School<small>Vaikom, Kerala, India</small></p></div><a href="#top">Back to the beginning ↑</a></footer>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><svg class="eyes" aria-hidden="true"><use href="#eyes"/></svg><span>Keeper of Stories<small>by Lisieux Titan</small></span></a>
+        <p>Lisieux English School, Vaikom, Kerala. World Robot Olympiad India 2026, Future Innovators Senior.</p>
+      </div>
+      <div class="footer-links">
+        <p class="speaker">Read more about the traditions</p>
+        <a href="https://madhubani.nic.in/handicraft/" target="_blank" rel="noopener noreferrer">Madhubani, District Administration ↗</a>
+        <a href="https://sansadkikala.ignca.gov.in/details/jan-janani-bhoomi/en" target="_blank" rel="noopener noreferrer">India’s living traditions, IGNCA ↗</a>
+      </div>
+      <a class="back-top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
 </body>
 </html>

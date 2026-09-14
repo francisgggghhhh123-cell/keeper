@@ -19,10 +19,41 @@ const patterns = {
   see: ['.......', '..###..', '.#...#.', '#..#..#', '.#...#.', '..###..', '.......'],
   explain: ['#######', '#.....#', '#.#...#', '#.##..#', '#.###.#', '#######', '..###..'],
   listen: ['..#....', '..#.#..', '#.#.#.#', '#.#.#.#', '#.#.#.#', '..#.#..', '..#....'],
-  offline: ['.#.#.#.', '#######', '##...##', '##.#.##', '##...##', '#######', '.#.#.#.']
+  offline: ['.#.#.#.', '#######', '##...##', '##.#.##', '##...##', '#######', '.#.#.#.'],
+  software: ['.......', '.#...#.', '#.....#', '#.#.#.#', '#.....#', '.#...#.', '.......'],
+  design: ['.....##', '....###', '...###.', '..###..', '.###...', '.##....', '#......'],
+  hardware: ['..###..', '.#...#.', '#.###.#', '#.#.#.#', '#.###.#', '.#...#.', '..###..'],
+  coach: ['...#...', '..###..', '.#####.', '...#...', '...#...', '...#...', '.#####.'],
+  mentor: ['..###..', '..###..', '...#...', '.#####.', '#.###.#', '..#.#..', '..#.#..']
 };
 document.querySelectorAll('[data-dots]').forEach(el => {
   el.innerHTML = patterns[el.dataset.dots].join('').split('').map(c => c === '#' ? '<i class="on"></i>' : '<i></i>').join('');
+});
+
+// Team photo: hover or tap a name to spotlight that person.
+const teamPhoto = document.querySelector('#team-photo');
+const pins = [...teamPhoto.querySelectorAll('.pin')];
+const members = [...document.querySelectorAll('.member')];
+let pinnedPerson = null;
+function spotlight(person) {
+  const pin = pins.find(p => p.dataset.person === person);
+  [...pins, ...members].forEach(el => el.classList.toggle('is-on', Boolean(person) && el.dataset.person === person));
+  if (pin) { teamPhoto.style.setProperty('--fx', pin.dataset.fx); teamPhoto.style.setProperty('--fy', pin.dataset.fy); }
+  teamPhoto.classList.toggle('is-focus', Boolean(pin));
+}
+[...pins, ...members].forEach(el => {
+  el.addEventListener('mouseenter', () => spotlight(el.dataset.person));
+  el.addEventListener('mouseleave', () => spotlight(pinnedPerson));
+});
+pins.forEach(pin => {
+  pin.setAttribute('aria-pressed', 'false');
+  pin.addEventListener('focus', () => spotlight(pin.dataset.person));
+  pin.addEventListener('blur', () => spotlight(pinnedPerson));
+  pin.addEventListener('click', () => {
+    pinnedPerson = pinnedPerson === pin.dataset.person ? null : pin.dataset.person;
+    pins.forEach(p => p.setAttribute('aria-pressed', String(p.dataset.person === pinnedPerson)));
+    spotlight(pinnedPerson);
+  });
 });
 
 // Hero: cycle the five paintings across Keeper's real screen.

@@ -2,7 +2,7 @@
 
 The website for Keeper of Stories, a storytelling robot built by Lisieux Titan from Lisieux English School, Vaikom, Kerala. Keeper recognises Indian folk paintings, explains them and answers questions out loud. It placed 7th at the WRO India 2026 National Championship (Future Innovators, Senior).
 
-Live at https://keeper.vercel.app
+Live at https://keeper-of-stories.vercel.app
 
 ## Running it locally
 

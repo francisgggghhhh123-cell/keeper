@@ -113,8 +113,9 @@ h2 {
 .btn-ghost:hover { background: var(--ink); color: #fff; }
 
 /* Eyes */
-.eyes { display: block; width: 36px; height: 15px; color: var(--red); fill: currentColor; flex-shrink: 0; animation: blink 6s infinite; transform-origin: 50% 50%; }
-@keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.12); } }
+.eyes { display: block; width: 36px; height: 15px; color: var(--red); fill: currentColor; flex-shrink: 0; overflow: visible; animation: blink 6s infinite; }
+/* Blink by clipping from top and bottom; scaling the SVG blurred the dots. */
+@keyframes blink { 0%, 92.5%, 97.5%, 100% { clip-path: inset(0 0 0 0); } 95% { clip-path: inset(44% 0 44% 0); } }
 
 /* Header */
 .site-header {

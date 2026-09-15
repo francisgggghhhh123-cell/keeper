@@ -341,6 +341,7 @@ h2 {
 .build { padding-block: var(--section); border-top: 1px solid var(--line); }
 .versions { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); margin-top: clamp(40px, 5vw, 72px); align-items: end; }
 .version img { width: 100%; border-radius: 6px; background: var(--soft); }
+.version img + img { margin-top: clamp(12px, 1.5vw, 16px); }
 .version-tall img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 62%; }
 .version figcaption { display: flex; gap: 12px; align-items: baseline; margin-top: 14px; font-size: 16px; color: var(--ink-2); }
 .version figcaption b { color: var(--ink); }

@@ -9,7 +9,8 @@ if (new Set(ids).size !== ids.length) throw new Error('Duplicate HTML id');
 const references = [...html.matchAll(/\b(?:src|href)="([^"]+)"/g)].map(m => m[1]);
 for (const ref of references) {
   if (ref.startsWith('#')) { if (!ids.includes(ref.slice(1))) throw new Error(`Broken anchor ${ref}`); continue; }
-  if (/^(https?:|data:|mailto:)/.test(ref)) continue;
+  // /_vercel/ is served by Vercel itself (Web Analytics), so it isn't in dist/.
+  if (/^(https?:|data:|mailto:|\/_vercel\/)/.test(ref)) continue;
   await access(path.join(root, ref));
 }
 for (const file of ['style.css', 'assets/fonts.css']) {

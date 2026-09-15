@@ -46,15 +46,35 @@ function spotlight(person) {
   el.addEventListener('mouseenter', () => spotlight(el.dataset.person));
   el.addEventListener('mouseleave', () => spotlight(pinnedPerson));
 });
+// On phones the pins crowd each other, so a row of name buttons under the photo does the same job.
+const rank = pin => pin.querySelector('.pin-num').textContent || '9';
+const pinChips = [...pins].sort((a, b) => rank(a).localeCompare(rank(b))).map(pin => {
+  const chip = document.createElement('button');
+  chip.type = 'button';
+  chip.className = pin.classList.contains('pin-soft') ? 'pin-chip pin-chip-soft' : 'pin-chip';
+  chip.dataset.person = pin.dataset.person;
+  chip.setAttribute('aria-label', pin.getAttribute('aria-label'));
+  chip.innerHTML = pin.innerHTML;
+  return chip;
+});
+const chipRow = document.createElement('div');
+chipRow.className = 'pin-chips';
+chipRow.setAttribute('role', 'group');
+chipRow.setAttribute('aria-label', 'People in the photo');
+chipRow.append(...pinChips);
+teamPhoto.after(chipRow);
+function pinPerson(person) {
+  pinnedPerson = pinnedPerson === person ? null : person;
+  [...pins, ...pinChips].forEach(el => el.setAttribute('aria-pressed', String(el.dataset.person === pinnedPerson)));
+  spotlight(pinnedPerson);
+}
+[...pins, ...pinChips].forEach(el => {
+  el.setAttribute('aria-pressed', 'false');
+  el.addEventListener('click', () => pinPerson(el.dataset.person));
+});
 pins.forEach(pin => {
-  pin.setAttribute('aria-pressed', 'false');
   pin.addEventListener('focus', () => spotlight(pin.dataset.person));
   pin.addEventListener('blur', () => spotlight(pinnedPerson));
-  pin.addEventListener('click', () => {
-    pinnedPerson = pinnedPerson === pin.dataset.person ? null : pin.dataset.person;
-    pins.forEach(p => p.setAttribute('aria-pressed', String(p.dataset.person === pinnedPerson)));
-    spotlight(pinnedPerson);
-  });
 });
 
 // Hero: cycle the five paintings across Keeper's real screen.
@@ -188,7 +208,16 @@ function selectArt(key) {
   scanTimer = setTimeout(() => { item.classList.remove('is-scanning'); setStatus(key); ask(0); }, 900);
 }
 
-wallItems.forEach(item => item.addEventListener('click', () => selectArt(item.dataset.art)));
+// When the console sits below the paintings, scroll just enough to show the start of the answer.
+const stacked = matchMedia('(max-width: 1120px)');
+const answerWrap = document.querySelector('.ask-a-wrap');
+function showAnswer() {
+  if (!stacked.matches) return;
+  const overshoot = answerWrap.getBoundingClientRect().top + 160 - innerHeight;
+  if (overshoot > 0) scrollBy({top: overshoot, behavior: reducedMotion.matches ? 'auto' : 'smooth'});
+}
+
+wallItems.forEach(item => item.addEventListener('click', () => { selectArt(item.dataset.art); showAnswer(); }));
 renderChips();
 
 // Reveal below-the-fold content, and mark the current section in the nav.

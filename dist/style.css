@@ -316,6 +316,15 @@ h2 {
 .step-num { display: block; margin-top: 28px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
 .step h3 { margin-top: 4px; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.05; letter-spacing: -.015em; font-weight: 680; }
 .step p { margin-top: 12px; font-size: 16px; color: var(--ink-2); }
+.moves { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 32px clamp(32px, 6vw, 96px); margin-top: clamp(64px, 8vw, 112px); }
+.dots-move { margin-bottom: 22px; animation: roll 2.8s cubic-bezier(.5, 0, .3, 1) infinite; }
+@keyframes roll { 50% { transform: translateX(14px); } }
+.moves-line { margin-top: 24px; padding-left: 16px; border-left: 3px solid var(--red); font-size: 21px; line-height: 1.25; letter-spacing: -.01em; font-weight: 620; }
+.moves-line .speaker { display: block; margin-bottom: 6px; }
+.control { margin-top: 10px; border-top: 1px solid var(--ink); }
+.control > div { display: grid; grid-template-columns: minmax(160px, 220px) minmax(0, 1fr); gap: 10px 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.control dt { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font-size: 20px; line-height: 1.15; letter-spacing: -.01em; font-weight: 650; }
+.control dd { color: var(--ink-2); }
 .specs { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 24px clamp(32px, 6vw, 96px); margin-top: clamp(64px, 8vw, 112px); }
 .specs-title { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.05; letter-spacing: -.015em; font-weight: 680; }
 .specs-intro { margin-top: 10px; font-size: 16px; color: var(--ink-2); }
@@ -439,7 +448,7 @@ h2 {
   .hero-figure { justify-self: start; max-width: 440px; }
   .section-head { grid-template-columns: minmax(0, 1fr); }
   .why-cols { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .specs { grid-template-columns: minmax(0, 1fr); }
+  .specs, .moves { grid-template-columns: minmax(0, 1fr); }
   .versions { grid-template-columns: minmax(0, 1fr); }
   .version-tall { max-width: 440px; }
   .nationals-grid { grid-template-columns: minmax(0, 1fr); }
@@ -480,6 +489,8 @@ h2 {
   .step, .step + .step { padding: 24px 0; border-left: 0; margin-top: 0; }
   .step + .step { border-top: 1px solid var(--line); }
   .spec-list > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .control > div { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .control dt { flex-direction: row; align-items: center; }
   .route { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
   .route li { padding: 0 0 28px 36px; }
   .route li::before, .route li:nth-child(3)::before { top: 0; bottom: 0; left: 7px; right: auto; width: 2px; height: auto; }
